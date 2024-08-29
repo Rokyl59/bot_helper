@@ -1,6 +1,7 @@
 # Bot Helper
 
-
+![](https://github.com/Rokyl59/bot_helper/blob/main/assets/gi1.gif)
+![](https://github.com/Rokyl59/bot_helper/blob/main/assets/gif2.gif)
 
 
 
