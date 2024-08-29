@@ -6,11 +6,8 @@ from vk_api.longpoll import VkLongPoll, VkEventType
 
 from dialogflow import dialogflow_response
 
-load_dotenv()
-vk_token = os.getenv('TOKEN_VK')
 
-
-def echo(event, vk_api):
+def send_message(event, vk_api):
     project_id = os.getenv('DF_PROJECT_ID')
     text = event.text
     session_id = event.user_id
@@ -24,9 +21,11 @@ def echo(event, vk_api):
 
 
 if __name__ == "__main__":
+    load_dotenv()
+    vk_token = os.getenv('TOKEN_VK')
     vk_session = vk.VkApi(token=vk_token)
     vk_api = vk_session.get_api()
     long_poll = VkLongPoll(vk_session)
     for event in long_poll.listen():
         if event.type == VkEventType.MESSAGE_NEW and event.to_me:
-            echo(event, vk_api)
+            send_message(event, vk_api)
