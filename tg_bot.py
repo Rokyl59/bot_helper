@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler
 from telegram.ext import Filters, CallbackContext
 
-from dialogflow import dialogflow_response
+from dialogflow import response_dialogflow
 
 
 def start(update: Update, context: CallbackContext):
@@ -14,7 +14,7 @@ def start(update: Update, context: CallbackContext):
 def send_message(update: Update, context: CallbackContext):
     text = update.message.text
     session_id = update.message.chat_id
-    response_text = dialogflow_response(project_id, session_id, text)
+    response_text = response_dialogflow(project_id, session_id, text)
     update.message.reply_text(response_text)
 
 

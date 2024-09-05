@@ -1,7 +1,7 @@
 from google.cloud import dialogflow
 
 
-def dialogflow_response(project_id, session_id, text):
+def response_dialogflow(project_id, session_id, text):
     session_client = dialogflow.SessionsClient()
     session = session_client.session_path(project_id, session_id)
     if not text:

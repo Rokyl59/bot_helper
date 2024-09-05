@@ -4,13 +4,13 @@ from dotenv import load_dotenv
 import vk_api as vk
 from vk_api.longpoll import VkLongPoll, VkEventType
 
-from dialogflow import dialogflow_response
+from dialogflow import response_dialogflow
 
 
 def send_message(event, vk_api):
     text = event.text
     session_id = event.user_id
-    response_text = dialogflow_response(project_id, session_id, text)
+    response_text = response_dialogflow(project_id, session_id, text)
     if response_text:
         vk_api.messages.send(
             user_id=event.user_id,
