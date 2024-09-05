@@ -44,6 +44,14 @@ Telegram-бот доступен по ссылке: [Bot Helper](https://t.me/de
 python teach_df.py
 ```
 
+### Аргументы
+
+Для настройки обучения нейросети используйте:
+
+```bash
+python teach_df.py --path questions.json
+```
+
 ### Запуск бота
 Для запуска Telegram-бота выполните:
 
