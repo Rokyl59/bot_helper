@@ -12,7 +12,6 @@ def start(update: Update, context: CallbackContext):
 
 
 def send_message(update: Update, context: CallbackContext):
-    project_id = os.getenv('DF_PROJECT_ID')
     text = update.message.text
     session_id = update.message.chat_id
     response_text = dialogflow_response(project_id, session_id, text)
@@ -21,6 +20,7 @@ def send_message(update: Update, context: CallbackContext):
 
 if __name__ == '__main__':
     load_dotenv()
+    project_id = os.getenv('DF_PROJECT_ID')
     tg_bot_api_key = os.getenv('TOKEN_TG')
     updater = Updater(tg_bot_api_key)
     dispatcher = updater.dispatcher

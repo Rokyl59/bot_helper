@@ -8,7 +8,6 @@ from dialogflow import dialogflow_response
 
 
 def send_message(event, vk_api):
-    project_id = os.getenv('DF_PROJECT_ID')
     text = event.text
     session_id = event.user_id
     response_text = dialogflow_response(project_id, session_id, text)
@@ -22,6 +21,7 @@ def send_message(event, vk_api):
 
 if __name__ == "__main__":
     load_dotenv()
+    project_id = os.getenv('DF_PROJECT_ID')
     vk_token = os.getenv('TOKEN_VK')
     vk_session = vk.VkApi(token=vk_token)
     vk_api = vk_session.get_api()
