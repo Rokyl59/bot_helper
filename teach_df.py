@@ -1,6 +1,7 @@
 import json
 import os
 import argparse
+import logging
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -26,7 +27,7 @@ if __name__ == '__main__':
     project_id = os.getenv('DF_PROJECT_ID')
     parsed_arguments = parse_arguments()
     if not Path.exists(parsed_arguments.path):
-        print('Указанный файл не найден!')
+        logging.error(f'файл {parsed_arguments.path} не найден')
         exit(0)
 
     with open(parsed_arguments.path, 'r') as file:
@@ -42,4 +43,3 @@ if __name__ == '__main__':
             training_phrases_parts,
             message_text,
         )
-        print(intent_status)
