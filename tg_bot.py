@@ -15,7 +15,7 @@ def send_message(update: Update, context: CallbackContext):
     text = update.message.text
     session_id = update.message.chat_id
     response_text = response_dialogflow(project_id, session_id, text)
-    update.message.reply_text(response_text)
+    update.message.reply_text(response_text.query_result.fulfillment_text)
 
 
 if __name__ == '__main__':
